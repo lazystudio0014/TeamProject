@@ -1,0 +1,2 @@
+under main/frontend install npm tailwind
+npx tailwindcss -i input.css -o ../webapp/WEB-INF/main.css

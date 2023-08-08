@@ -1,0 +1,54 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.1.2'
+	id 'io.spring.dependency-management' version '1.1.2'
+	id 'com.github.node-gradle.node' version '3.4.0'// node.js
+}
+// node veresion info
+node {
+	version = '18.16.0'
+	npmVersion = '9.5.1'
+	download = true
+	nodeProjectDir = file('${projectDir}/src/main/resources/frontend')
+}
+// config for node
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+task copyFrontLib(type: Copy) {
+	from "${projectDir}/src/main/resources/frontend"
+	into "${projectDir}/build/resources/main/frontend/."
+}
+
+group = 'com.team'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	sourceCompatibility = '17'
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
+	//implementation 'javax.servlet:jstl'
+	implementation 'org.glassfish.web:jakarta.servlet.jsp.jstl'
+	implementation 'jakarta.servlet.jsp.jstl:jakarta.servlet.jsp.jstl-api'
+	compileOnly 'org.projectlombok:lombok' //추가
+	annotationProcessor 'org.projectlombok:lombok' //추가
+	implementation 'com.oracle.database.jdbc:ojdbc11' //오라클
+	implementation 'org.springframework.boot:spring-boot-starter-jdbc'//DataSourceUtils
+	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.1'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
