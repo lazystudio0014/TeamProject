@@ -11,7 +11,7 @@
     <body style="text-align:center">
 
         <h3>index.jsp</h3>
-        <a href="member/createMember">회원가입</a><br/>
+        <a href="form.do">회원가입</a>
 
     </body>
 </html>
