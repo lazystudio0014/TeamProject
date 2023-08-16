@@ -17,7 +17,6 @@ import java.time.LocalDateTime;
 public class Member {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="MEMBERS_SEQ_GENERATOR")
-    @Column(name = "MEMBERS_SEQ")
     private long seq;         //회원 번호
     private String email;       //이메일 + id
     private String nickname; //사용자 닉네임
@@ -27,5 +26,6 @@ public class Member {
     private String name;                //이름
     private String gender;                //성별
     private String address;              //주소
-    private LocalDateTime createdate;   //가입날짜
+    private LocalDateTime rdate;   //가입날짜
+    private LocalDateTime udate; //수정날짜
 }
