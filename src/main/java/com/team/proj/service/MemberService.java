@@ -1,7 +1,7 @@
 package com.team.proj.service;
 
-import com.team.proj.entity.Member;
 import com.team.proj.repository.MemberRepository;
+import com.team.proj.entity.Member;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

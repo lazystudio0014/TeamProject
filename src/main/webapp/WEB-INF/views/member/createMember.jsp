@@ -29,6 +29,9 @@
                 <input type="email" name="email" id="email" placeholder="Email">
                 <div class="error-message" id="emailError" style="color: red;"></div>
 
+                <label for="nickName">닉네임</label>
+                <input type="text" name="nickName" id="nickName" placeholder="닉네임 입력해주세요">
+
                 <label for="password">비밀번호</label>
                 <input type="password" name="password" id="password" placeholder="비밀번호를 입력해주세요.">
                 <div class="error-message" id="passwordError" style="color: red;"></div>

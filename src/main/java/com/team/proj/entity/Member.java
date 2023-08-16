@@ -23,6 +23,9 @@ public class Member {
     private String email;       //이메일 + id
 
     @Column(nullable = false)
+    private String nickName; //사용자 닉네임
+
+    @Column(nullable = false)
     private String password;    //비번
 
     @Column(nullable = false)
@@ -52,13 +55,13 @@ public class Member {
         member.setBirthdate(memberNewDto.getBirthdate());
         member.setAddress(address);
         member.setEmail(memberNewDto.getEmail());
+        member.setNickName(memberNewDto.getNickName());
         member.setPassword(memberNewDto.getPassword());
         member.setGender(memberNewDto.getGender());
         member.setPhoneNumber(memberNewDto.getPhoneNumber());
 
         LocalDateTime localDateTime = LocalDateTime.now();
         member.setCreateDate(localDateTime);
-
         return member;
     }
 }
