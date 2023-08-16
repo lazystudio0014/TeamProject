@@ -1,6 +1,6 @@
-package com.team.proj.service;
+package com.team.proj.service.create;
 
-import com.team.proj.dto.CreateMemberDto;
+import com.team.proj.dto.create.CreateMemberDto;
 import com.team.proj.entity.Member;
 import com.team.proj.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;

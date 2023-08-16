@@ -1,4 +1,4 @@
-package com.team.proj.dto;
+package com.team.proj.dto.create;
 
 import lombok.Getter;
 import lombok.Setter;

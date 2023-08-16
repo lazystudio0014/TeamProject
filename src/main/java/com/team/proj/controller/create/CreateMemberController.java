@@ -1,8 +1,8 @@
-package com.team.proj.controller;
+package com.team.proj.controller.create;
 
-import com.team.proj.dto.CreateMemberDto;
+import com.team.proj.dto.create.CreateMemberDto;
 import com.team.proj.entity.Member;
-import com.team.proj.service.CreateMemberSerivce;
+import com.team.proj.service.create.CreateMemberSerivce;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
