@@ -7,4 +7,6 @@ public interface MemberLoginService {
 
     MemberLogin getLogin(String email);
 
+
+
 }
