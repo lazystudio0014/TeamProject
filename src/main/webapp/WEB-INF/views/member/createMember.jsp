@@ -29,12 +29,15 @@
                 <input type="email" name="email" id="email" placeholder="Email">
                 <div class="error-message" id="emailError" style="color: red;"></div>
 
+                <label for="nickName">닉네임</label>
+                <input type="text" name="nickname" id="nickName" placeholder="닉네임 입력해주세요">
+
                 <label for="password">비밀번호</label>
                 <input type="password" name="password" id="password" placeholder="비밀번호를 입력해주세요.">
                 <div class="error-message" id="passwordError" style="color: red;"></div>
 
-                <label for="phoneNumber">전화번호</label>
-                <input type="text" name="phoneNumber" id="phoneNumber" placeholder="전화번호를 입력해주세요">
+                <label for="phonenumber">전화번호</label>
+                <input type="text" name="phonenumber" id="phonenumber" placeholder="전화번호를 입력해주세요">
 
                 <label for="gender">성별</label>
                 <input type="hidden" id="gender" name="gender">

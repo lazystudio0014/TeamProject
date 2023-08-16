@@ -1,8 +1,8 @@
 package com.team.proj.controller;
 
-import com.team.proj.dto.MemberNewDto;
+import com.team.proj.dto.CreateMemberDto;
 import com.team.proj.entity.Member;
-import com.team.proj.service.MemberService;
+import com.team.proj.service.CreateMemberSerivce;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,19 +15,20 @@ import java.util.Set;
 
 @Controller
 @RequiredArgsConstructor
-public class MemberController {
-    private final MemberService memberService;
+public class CreateMemberController {
+    private final CreateMemberSerivce createMemberSerivce;
     @GetMapping("/form.do")
     public String createMember(Model model){
-        model.addAttribute("MemberNewDto", new MemberNewDto());
+        model.addAttribute("CreateMemberDto", new CreateMemberDto());
         return "member/createMember";
     }
     @PostMapping("/signUp.do")
-    public String newMember(MemberNewDto memberNewDto, Model model){
-        String email = memberService.findMemberByEmail(memberNewDto.getEmail());
+    public String newMember(CreateMemberDto memberNewDto, Model model){
+        String email = createMemberSerivce.findMemberByEmail(memberNewDto.getEmail());
+        System.err.println(memberNewDto.toString());
         if (email == null) {
-            Member newMember = Member.createid(memberNewDto);
-            memberService.save(newMember);
+            Member newMember = createMemberSerivce.createMember(memberNewDto);
+            createMemberSerivce.save(newMember);
             return "redirect:form.do"; //나중에 로그인 화면으로 이동
         } else {
             model.addAttribute("errorMessage", "중복된 이메일입니다.");
@@ -44,7 +45,7 @@ public class MemberController {
         }
 
         // 중복 체크를 실제로 수행하고 결과를 캐시에 저장
-        boolean isEmailExists = memberService.checkEmailExists(email);
+        boolean isEmailExists = createMemberSerivce.checkEmailExists(email);
         if (isEmailExists) {
             checkedEmails.add(email);
         }
