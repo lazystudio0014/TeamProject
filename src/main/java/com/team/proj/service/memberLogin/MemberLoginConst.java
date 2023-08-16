@@ -1,4 +1,4 @@
-package com.team.proj.service;
+package com.team.proj.service.memberLogin;
 
 public class MemberLoginConst {
     public static final int NO_ID = 1;

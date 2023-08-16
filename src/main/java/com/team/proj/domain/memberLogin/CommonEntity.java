@@ -1,4 +1,4 @@
-package com.team.proj.domain;
+package com.team.proj.domain.memberLogin;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Convert;
