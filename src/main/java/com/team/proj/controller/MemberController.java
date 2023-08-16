@@ -1,9 +1,9 @@
 package com.team.proj.controller;
 
-import com.team.proj.dto.CreateMemberDto;
+import com.team.proj.dto.MemberNewDto;
 import com.team.proj.entity.Member;
-import com.team.proj.service.CreateMemberSerivce;
-import lombok.AllArgsConstructor;
+import com.team.proj.service.MemberService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,19 +14,19 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Controller
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class MemberController {
-    private final CreateMemberSerivce memberService;
+    private final MemberService memberService;
     @GetMapping("/form.do")
-    public String newMember(Model model){
-        model.addAttribute("MemberNewDto", new CreateMemberDto());
+    public String createMember(Model model){
+        model.addAttribute("MemberNewDto", new MemberNewDto());
         return "member/createMember";
     }
     @PostMapping("/signUp.do")
-    public String newMember(CreateMemberDto createMemberDto, Model model){
-        String email = memberService.findMemberByEmail(createMemberDto.getEmail());
+    public String newMember(MemberNewDto memberNewDto, Model model){
+        String email = memberService.findMemberByEmail(memberNewDto.getEmail());
         if (email == null) {
-            Member newMember = memberService.createMember(createMemberDto);
+            Member newMember = Member.createid(memberNewDto);
             memberService.save(newMember);
             return "redirect:form.do"; //나중에 로그인 화면으로 이동
         } else {
