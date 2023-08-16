@@ -5,13 +5,18 @@
 <html>
     <meta charset="UTF-8">
     <style>
-        a{text=decoration:none}
+        a{text-decoration:none}
     </style>
-
+    <link rel="stylesheet" href="/main.css"/>
     <body style="text-align:center">
-
-        <h3>index.jsp</h3>
-        <a href="form.do">회원가입</a>
-
+         <c:choose>
+         <c:when test="${empty loginOkUser}">
+            <a href = "login/form.do">로그인</a>
+         </c:when>
+         <c:otherwise>
+               <font style="color:blue">${loginOkUser.name}</font>님..어서오세요<br/>
+               <a href="login/logout.do">로그아웃</a>
+         </c:otherwise>
+         </c:choose>
     </body>
 </html>

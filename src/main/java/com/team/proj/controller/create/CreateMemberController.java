@@ -29,7 +29,7 @@ public class CreateMemberController {
         if (email == null) {
             Member newMember = createMemberSerivce.createMember(memberNewDto);
             createMemberSerivce.save(newMember);
-            return "redirect:form.do"; //나중에 로그인 화면으로 이동
+            return "redirect:login/form.do"; //나중에 로그인 화면으로 이동
         } else {
             model.addAttribute("errorMessage", "중복된 이메일입니다.");
             return "member/createMember";
